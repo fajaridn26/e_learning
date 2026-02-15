@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,4 +28,10 @@ Route::prefix('/courses')->group(function () {
     Route::post('/{id}/enroll', [CourseController::class, 'enroll'])->name('courses.enroll');
     Route::put('/{id}', [CourseController::class, 'update'])->name('courses.update');
     Route::delete('/{id}', [CourseController::class, 'destroy'])->name('courses.destroy');;
+});
+
+Route::prefix('/materials')->group(function () {
+    Route::get('/', [MaterialController::class, 'index']);
+    Route::post('/', [MaterialController::class, 'store'])->name('materials.store');
+    Route::get('/{id}/download', [MaterialController::class, 'download'])->name('materials.download');
 });

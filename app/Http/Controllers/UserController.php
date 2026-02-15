@@ -9,9 +9,10 @@ class UserController extends Controller
 {
     public function index()
     {
+        $title = 'User';
         $users = User::select(['id', 'name', 'email', 'role'])->orderBy('created_at', 'desc')->get();
 
-        return view('user.index', compact('users'));
+        return view('user.index', compact('users', 'title'));
     }
 
       public function store(Request $request)

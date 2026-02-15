@@ -115,17 +115,13 @@
             <li class="nxl-item nxl-hasmenu">
                 <a href="javascript:void(0);" class="nxl-link">
                     <span class="nxl-micon"><i class="feather-layout"></i></span>
-                    <span class="nxl-mtext">Widgets</span><span class="nxl-arrow"><i
+                    <span class="nxl-mtext">Materi Kuliah</span><span class="nxl-arrow"><i
                             class="feather-chevron-right"></i></span>
                 </a>
                 <ul class="nxl-submenu">
-                    <li class="nxl-item"><a class="nxl-link" href="widgets-lists.html">Lists</a></li>
-                    <li class="nxl-item"><a class="nxl-link" href="widgets-tables.html">Tables</a></li>
-                    <li class="nxl-item"><a class="nxl-link" href="widgets-charts.html">Charts</a></li>
-                    <li class="nxl-item"><a class="nxl-link" href="widgets-statistics.html">Statistics</a></li>
-                    <li class="nxl-item"><a class="nxl-link" href="widgets-miscellaneous.html">Miscellaneous</a>
-                    </li>
-                </ul>
+                    <li class="nxl-item"><a class="nxl-link" href="{{ url('materials') }}">Materi Kuliah</a></li>
+            </li>
+            </ul>
             </li>
             <li class="nxl-item nxl-hasmenu">
                 <a href="javascript:void(0);" class="nxl-link">
