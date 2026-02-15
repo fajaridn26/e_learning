@@ -276,8 +276,8 @@
                                                     <div class="item-checkbox ms-1">
                                                         <div class="custom-control custom-checkbox">
                                                             <input type="checkbox" class="custom-control-input checkbox"
-                                                                id="checkBox_1">
-                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                                id="checkBox_1{{ $course->id }}">
+                                                            <label class="custom-control-label" for="checkBox_1{{ $course->id }}"></label>
                                                         </div>
                                                     </div>
                                                 </td>

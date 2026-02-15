@@ -1109,7 +1109,7 @@
             <!-- [ Main Content ] end -->
         </div>
         <!-- [ Footer ] start -->
-        {{-- @include('layouts.footer') --}}
+        @include('layouts.footer')
         <!-- [ Footer ] end -->
     </main>
 @endsection
