@@ -6,7 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('/')->group(function () {
+Route::middleware('auth')->prefix('/')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
 });
 
@@ -24,6 +24,7 @@ Route::prefix('/users')->group(function () {
 Route::prefix('/courses')->group(function () {
     Route::get('/', [CourseController::class, 'index']);
     Route::post('/', [CourseController::class, 'store'])->name('courses.store');
+    Route::post('/{id}/enroll', [CourseController::class, 'enroll'])->name('courses.enroll');
     Route::put('/{id}', [CourseController::class, 'update'])->name('courses.update');
     Route::delete('/{id}', [CourseController::class, 'destroy'])->name('courses.destroy');;
 });

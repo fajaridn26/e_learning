@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\CourseStudent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,8 +12,17 @@ class CourseController extends Controller
     public function index()
     {
         $title = 'Mata Kuliah';
-        $courses = Course::select(['id', 'name', 'description'])->orderBy('created_at', 'asc')->get();
-        return view('mata-kuliah.index', compact('courses', 'title'));
+        $user = Auth::user();
+
+        $datas = Course::select(['id', 'name', 'description'])->orderBy('created_at', 'desc')->get();
+
+        if ($user->role === 'Dosen') {
+            $courses = Course::select(['id', 'name', 'description'])->orderBy('created_at', 'desc')->get();
+        } else {
+            $courses = CourseStudent::select(['id', 'student_id', 'course_id'])->with('course')->orderBy('created_at', 'desc')->get();
+
+        }
+        return view('mata-kuliah.index', compact('courses', 'datas', 'title'));
     }
 
     public function store(Request $request)
@@ -28,8 +38,42 @@ class CourseController extends Controller
             'lecturer_id' => Auth::id()
         ]);
 
-        return redirect()->back()->with('success', "Mata Kuliah '{$request->name}' Berhasil Dibuat!");
+        return redirect()->back()->with('success', "Mata Kuliah '{$request->name}' Berhasil Ditambahkan!");
     }
+
+    // public function enroll(Request $request)
+    // {
+    //     $request->validate([
+    //         'items' => 'required|array',
+    //         'items.*' => 'required|exists:courses,id',
+    //     ]);
+
+    //     // $course = Course::findOrFail($id);
+
+    //     auth()->user()
+    //         ->enrolledCourses()
+    //         ->syncWithoutDetaching($request->items);
+
+    //     return redirect()->back()->with('success', 'Berhasil Mendaftar Mata Kuliah!');
+    // }
+
+    public function enroll($id)
+    {
+        $course = Course::findOrFail($id);
+
+        $student = auth()->user();
+
+        if ($student->enrolledCourses()->where('course_id', $id)->exists()) {
+            return redirect()->back()
+                ->with('error', 'Anda sudah terdaftar di mata kuliah ini.');
+        }
+
+        $student->enrolledCourses()->attach($id);
+
+        return redirect()->back()
+            ->with('success', 'Berhasil mendaftar mata kuliah!');
+    }
+
 
     public function update(Request $request, $id)
     {
