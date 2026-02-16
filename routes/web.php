@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\SubmissionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,4 +36,15 @@ Route::prefix('/materials')->group(function () {
     Route::get('/', [MaterialController::class, 'index']);
     Route::post('/', [MaterialController::class, 'store'])->name('materials.store');
     Route::get('/{id}/download', [MaterialController::class, 'download'])->name('materials.download');
+});
+
+Route::prefix('/assignments')->group(function () {
+    Route::post('/', [AssignmentController::class, 'store'])->name('assignments.store');
+});
+
+Route::prefix('/submissions')->group(function () {
+    Route::get('/', [SubmissionController::class, 'index']);
+    Route::get('/tugas-mahasiswa/{assignment}', [SubmissionController::class, 'showTugasMahasiswa'])->name('submissions.tugas-mahasiswa');
+    Route::post('/', [SubmissionController::class, 'store'])->name('submissions.store');
+    Route::post('/{id}/grade', [SubmissionController::class, 'grade'])->name('submissions.grade');
 });

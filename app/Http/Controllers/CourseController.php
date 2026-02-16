@@ -20,7 +20,6 @@ class CourseController extends Controller
             $courses = Course::select(['id', 'name', 'description'])->orderBy('created_at', 'desc')->get();
         } else {
             $courses = CourseStudent::select(['id', 'student_id', 'course_id'])->with('course')->orderBy('created_at', 'desc')->get();
-
         }
         return view('mata-kuliah.index', compact('courses', 'datas', 'title'));
     }
@@ -38,7 +37,7 @@ class CourseController extends Controller
             'lecturer_id' => Auth::id()
         ]);
 
-        return redirect()->back()->with('success', "Mata Kuliah '{$request->name}' Berhasil Ditambahkan!");
+        return back()->with('success', "Mata Kuliah '{$request->name}' Berhasil Ditambahkan!");
     }
 
     // public function enroll(Request $request)

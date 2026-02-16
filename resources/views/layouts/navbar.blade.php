@@ -39,7 +39,7 @@
                 <!--! [Start] nxl-lavel-mega-menu-wrapper !-->
                 <div class="nxl-lavel-mega-menu-wrapper d-flex gap-3">
                     <!--! [Start] nxl-lavel-menu !-->
-                    <div class="dropdown nxl-h-item nxl-lavel-menu">
+                    {{-- <div class="dropdown nxl-h-item nxl-lavel-menu">
                         <a href="javascript:void(0);" class="avatar-text avatar-md bg-primary text-white"
                             data-bs-toggle="dropdown" data-bs-auto-close="outside">
                             <i class="feather-plus"></i>
@@ -409,10 +409,10 @@
                                 <span>Add New Items</span>
                             </a>
                         </div>
-                    </div>
+                    </div> --}}
                     <!--! [End] nxl-lavel-menu !-->
                     <!--! [Start] nxl-h-item nxl-mega-menu !-->
-                    <div class="dropdown nxl-h-item nxl-mega-menu">
+                    {{-- <div class="dropdown nxl-h-item nxl-mega-menu">
                         <a href="javascript:void(0);" class="btn btn-light-brand" data-bs-toggle="dropdown"
                             data-bs-auto-close="outside"> Mega Menu </a>
                         <div class="dropdown-menu nxl-h-dropdown" id="mega-menu-dropdown">
@@ -487,7 +487,7 @@
                                     <!--! [Start] v-pills-general !-->
                                     <div class="tab-pane fade show active" id="v-pills-general" role="tabpanel">
                                         <div class="mb-4 rounded-3 border">
-                                            <img src="assets/images/banner/mockup.png" alt=""
+                                            <img src="{{ asset('assets/images/banner/mockup.png') }}" alt=""
                                                 class="img-fluid rounded-3" />
                                         </div>
                                         <h6 class="fw-bolder">Duralux - Admin Dashboard UiKit</h6>
@@ -530,8 +530,8 @@
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="nxl-mega-menu-image">
-                                                    <img src="assets/images/general/full-avatar.png" alt=""
-                                                        class="img-fluid full-user-avtar" />
+                                                    <img src="{{ asset('assets/images/general/full-avatar.png') }}"
+                                                        alt="" class="img-fluid full-user-avtar" />
                                                 </div>
                                             </div>
                                         </div>
@@ -568,8 +568,8 @@
                                             <div class="col-lg-4">
                                                 <a href="javascript:void(0);" class="dropdown-item">
                                                     <div class="menu-item-icon">
-                                                        <img src="assets/images/brand/app-store.png" alt=""
-                                                            class="img-fluid" />
+                                                        <img src="{{ asset('assets/images/brand/app-store.png') }}"
+                                                            alt="" class="img-fluid" />
                                                     </div>
                                                     <div class="menu-item-title">App Store</div>
                                                     <div class="menu-item-arrow">
@@ -578,8 +578,8 @@
                                                 </a>
                                                 <a href="javascript:void(0);" class="dropdown-item">
                                                     <div class="menu-item-icon">
-                                                        <img src="assets/images/brand/spotify.png" alt=""
-                                                            class="img-fluid" />
+                                                        <img src="{{ asset('assets/images/brand/spotify.png') }}"
+                                                            alt="" class="img-fluid" />
                                                     </div>
                                                     <div class="menu-item-title">Spotify</div>
                                                     <div class="menu-item-arrow">
@@ -588,8 +588,8 @@
                                                 </a>
                                                 <a href="javascript:void(0);" class="dropdown-item">
                                                     <div class="menu-item-icon">
-                                                        <img src="assets/images/brand/figma.png" alt=""
-                                                            class="img-fluid" />
+                                                        <img src="{{ asset('assets/images/brand/figma.png') }}"
+                                                            alt="" class="img-fluid" />
                                                     </div>
                                                     <div class="menu-item-title">Figma</div>
                                                     <div class="menu-item-arrow">
@@ -598,8 +598,8 @@
                                                 </a>
                                                 <a href="javascript:void(0);" class="dropdown-item">
                                                     <div class="menu-item-icon">
-                                                        <img src="assets/images/brand/shopify.png" alt=""
-                                                            class="img-fluid" />
+                                                        <img src="{{ asset('assets/images/brand/shopify.png') }}"
+                                                            alt="" class="img-fluid" />
                                                     </div>
                                                     <div class="menu-item-title">Shopify</div>
                                                     <div class="menu-item-arrow">
@@ -608,8 +608,8 @@
                                                 </a>
                                                 <a href="javascript:void(0);" class="dropdown-item">
                                                     <div class="menu-item-icon">
-                                                        <img src="assets/images/brand/paypal.png" alt=""
-                                                            class="img-fluid" />
+                                                        <img src="{{ asset('assets/images/brand/paypal.png') }}"
+                                                            alt="" class="img-fluid" />
                                                     </div>
                                                     <div class="menu-item-title">Paypal</div>
                                                     <div class="menu-item-arrow">
@@ -620,8 +620,8 @@
                                             <div class="col-lg-4">
                                                 <a href="javascript:void(0);" class="dropdown-item">
                                                     <div class="menu-item-icon">
-                                                        <img src="assets/images/brand/gmail.png" alt=""
-                                                            class="img-fluid" />
+                                                        <img src="{{ asset('assets/images/brand/gmail.png') }}"
+                                                            alt="" class="img-fluid" />
                                                     </div>
                                                     <div class="menu-item-title">Gmail</div>
                                                     <div class="menu-item-arrow">
@@ -630,8 +630,8 @@
                                                 </a>
                                                 <a href="javascript:void(0);" class="dropdown-item">
                                                     <div class="menu-item-icon">
-                                                        <img src="assets/images/brand/dropbox.png" alt=""
-                                                            class="img-fluid" />
+                                                        <img src="{{ asset('assets/images/brand/dropbox.png') }}"
+                                                            alt="" class="img-fluid" />
                                                     </div>
                                                     <div class="menu-item-title">Dropbox</div>
                                                     <div class="menu-item-arrow">
@@ -1802,7 +1802,7 @@
                                 <!--! [End] nxl-mega-menu-tabs-content !-->
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!--! [End] nxl-h-item nxl-mega-menu !-->
                 </div>
                 <!--! [End] nxl-lavel-mega-menu-wrapper !-->
@@ -1823,8 +1823,7 @@
                             <span class="input-group-text">
                                 <i class="feather-search fs-6 text-muted"></i>
                             </span>
-                            <input type="text" class="form-control search-input-field"
-                                placeholder="Search...." />
+                            <input type="text" class="form-control search-input-field" placeholder="Search...." />
                             <span class="input-group-text">
                                 <button type="button" class="btn-close"></button>
                             </span>
@@ -1884,8 +1883,8 @@
                                             <i class="feather-file-plus"></i>
                                         </div>
                                         <div>
-                                            <a href="javascript:void(0);"
-                                                class="font-body fw-bold d-block mb-1">Create new document</a>
+                                            <a href="javascript:void(0);" class="font-body fw-bold d-block mb-1">Create
+                                                new document</a>
                                             <p class="fs-11 text-muted mb-0">Home / tasks / docs</p>
                                         </div>
                                     </div>
@@ -1918,7 +1917,7 @@
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                     <div class="d-flex align-items-center gap-3">
                                         <div class="avatar-image rounded">
-                                            <img src="assets/images/avatar/1.png" alt=""
+                                            <img src="{{ asset('assets/images/avatar/1.png') }}" alt=""
                                                 class="img-fluid" />
                                         </div>
                                         <div>
@@ -1934,12 +1933,12 @@
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                     <div class="d-flex align-items-center gap-3">
                                         <div class="avatar-image rounded">
-                                            <img src="assets/images/avatar/2.png" alt=""
+                                            <img src="{{ asset('assets/images/avatar/2.png') }}" alt=""
                                                 class="img-fluid" />
                                         </div>
                                         <div>
-                                            <a href="javascript:void(0);"
-                                                class="font-body fw-bold d-block mb-1">Green Cute</a>
+                                            <a href="javascript:void(0);" class="font-body fw-bold d-block mb-1">Green
+                                                Cute</a>
                                             <p class="fs-11 text-muted mb-0">green.cute@outlook.com</p>
                                         </div>
                                     </div>
@@ -1950,7 +1949,7 @@
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                     <div class="d-flex align-items-center gap-3">
                                         <div class="avatar-image rounded">
-                                            <img src="assets/images/avatar/3.png" alt=""
+                                            <img src="{{ asset('assets/images/avatar/3.png') }}" alt=""
                                                 class="img-fluid" />
                                         </div>
                                         <div>
@@ -1966,7 +1965,7 @@
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                     <div class="d-flex align-items-center gap-3">
                                         <div class="avatar-image rounded">
-                                            <img src="assets/images/avatar/4.png" alt=""
+                                            <img src="{{ asset('assets/images/avatar/4.png') }}" alt=""
                                                 class="img-fluid" />
                                         </div>
                                         <div>
@@ -1982,7 +1981,7 @@
                                 <div class="d-flex align-items-center justify-content-between mb-0">
                                     <div class="d-flex align-items-center gap-3">
                                         <div class="avatar-image rounded">
-                                            <img src="assets/images/avatar/5.png" alt=""
+                                            <img src="{{ asset('assets/images/avatar/5.png') }}" alt=""
                                                 class="img-fluid" />
                                         </div>
                                         <div>
@@ -2003,7 +2002,7 @@
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                     <div class="d-flex align-items-center gap-3">
                                         <div class="avatar-image bg-gray-200 rounded">
-                                            <img src="assets/images/file-icons/css.png" alt=""
+                                            <img src="{{ asset('assets/images/file-icons/css.png') }}" alt=""
                                                 class="img-fluid" />
                                         </div>
                                         <div>
@@ -2019,7 +2018,7 @@
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                     <div class="d-flex align-items-center gap-3">
                                         <div class="avatar-image bg-gray-200 rounded">
-                                            <img src="assets/images/file-icons/zip.png" alt=""
+                                            <img src="{{ asset('assets/images/file-icons/zip.png') }}" alt=""
                                                 class="img-fluid" />
                                         </div>
                                         <div>
@@ -2035,7 +2034,7 @@
                                 <div class="d-flex align-items-center justify-content-between mb-0">
                                     <div class="d-flex align-items-center gap-3">
                                         <div class="avatar-image bg-gray-200 rounded">
-                                            <img src="assets/images/file-icons/pdf.png" alt=""
+                                            <img src="{{ asset('assets/images/file-icons/pdf.png') }}" alt=""
                                                 class="img-fluid" />
                                         </div>
                                         <div>
@@ -2277,13 +2276,13 @@
                 <div class="dropdown nxl-h-item">
                     <a href="javascript:void(0);" data-bs-toggle="dropdown" role="button"
                         data-bs-auto-close="outside">
-                        <img src="assets/images/avatar/1.png" alt="user-image"
+                        <img src="{{ asset('assets/images/avatar/1.png') }}" alt="user-image"
                             class="img-fluid user-avtar me-0" />
                     </a>
                     <div class="dropdown-menu dropdown-menu-end nxl-h-dropdown nxl-user-dropdown">
                         <div class="dropdown-header">
                             <div class="d-flex align-items-center">
-                                <img src="assets/images/avatar/1.png" alt="user-image"
+                                <img src="{{ asset('assets/images/avatar/1.png') }}" alt="user-image"
                                     class="img-fluid user-avtar" />
                                 <div>
                                     <h6 class="text-dark mb-0">{{ auth()->user()->name }}</h6>
@@ -2291,7 +2290,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dropdown">
+                        {{-- <div class="dropdown">
                             <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="dropdown">
                                 <span class="hstack">
                                     <i
@@ -2346,8 +2345,8 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="dropdown-divider"></div>
-                        <div class="dropdown">
+                        <div class="dropdown-divider"></div> --}}
+                        {{-- <div class="dropdown">
                             <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="dropdown">
                                 <span class="hstack">
                                     <i class="feather-dollar-sign me-2"></i>
@@ -2394,8 +2393,8 @@
                                     </span>
                                 </a>
                             </div>
-                        </div>
-                        <div class="dropdown-divider"></div>
+                        </div> --}}
+                        {{-- <div class="dropdown-divider"></div>
                         <a href="javascript:void(0);" class="dropdown-item">
                             <i class="feather-user"></i>
                             <span>Profile Details</span>
@@ -2411,16 +2410,16 @@
                         <a href="javascript:void(0);" class="dropdown-item">
                             <i class="feather-bell"></i>
                             <span>Notifications</span>
-                        </a>
+                        </a> --}}
                         <a href="javascript:void(0);" class="dropdown-item">
                             <i class="feather-settings"></i>
                             <span>Account Settings</span>
                         </a>
                         <div class="dropdown-divider"></div>
-                            <a href="javascript:void(0);" class="dropdown-item">
-                                <i class="feather-log-out"></i>
-                                <span>Logout</span>
-                            </a>
+                        <a href="javascript:void(0);" class="dropdown-item">
+                            <i class="feather-log-out"></i>
+                            <span>Logout</span>
+                        </a>
                     </div>
                 </div>
             </div>

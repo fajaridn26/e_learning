@@ -3,8 +3,8 @@
         <div class="m-header">
             <a href="{{ url('/') }}" class="b-brand">
                 <!-- ========   change your logo hear   ============ -->
-                <img src="assets/images/logo-full.png" alt="" class="logo logo-lg" />
-                <img src="assets/images/logo-abbr.png" alt="" class="logo logo-sm" />
+                <img src="{{ asset('assets/images/logo-full.png') }}" alt="" class="logo logo-lg" />
+                <img src="{{ asset('assets/images/logo-abbr.png') }}" alt="" class="logo logo-sm" />
             </a>
         </div>
         <div class="navbar-content">
@@ -110,6 +110,8 @@
                 </a>
                 <ul class="nxl-submenu">
                     <li class="nxl-item"><a class="nxl-link" href="{{ url('courses') }}">Mata Kuliah</a></li>
+                    <li class="nxl-item"><a class="nxl-link" href="{{ url('submissions') }}">Tugas</a>
+                    </li>
                 </ul>
             </li>
             <li class="nxl-item nxl-hasmenu">
@@ -123,7 +125,7 @@
             </li>
             </ul>
             </li>
-            <li class="nxl-item nxl-hasmenu">
+            {{-- <li class="nxl-item nxl-hasmenu">
                 <a href="javascript:void(0);" class="nxl-link">
                     <span class="nxl-micon"><i class="feather-settings"></i></span>
                     <span class="nxl-mtext">Settings</span><span class="nxl-arrow"><i
@@ -146,8 +148,8 @@
                     <li class="nxl-item"><a class="nxl-link" href="settings-miscellaneous.html">Miscellaneous</a>
                     </li>
                 </ul>
-            </li>
-            <li class="nxl-item nxl-hasmenu">
+            </li> --}}
+            {{-- <li class="nxl-item nxl-hasmenu">
                 <a href="javascript:void(0);" class="nxl-link">
                     <span class="nxl-micon"><i class="feather-power"></i></span>
                     <span class="nxl-mtext">Authentication</span><span class="nxl-arrow"><i
@@ -238,8 +240,8 @@
                         </ul>
                     </li>
                 </ul>
-            </li>
-            <li class="nxl-item nxl-hasmenu">
+            </li> --}}
+            {{-- <li class="nxl-item nxl-hasmenu">
                 <a href="javascript:void(0);" class="nxl-link">
                     <span class="nxl-micon"><i class="feather-life-buoy"></i></span>
                     <span class="nxl-mtext">Help Center</span><span class="nxl-arrow"><i
@@ -251,9 +253,9 @@
                     </li>
                     <li class="nxl-item"><a class="nxl-link" href="/docs/documentations">Documentations</a></li>
                 </ul>
-            </li>
+            </li> --}}
             </ul>
-            <div class="card text-center">
+            {{-- <div class="card text-center">
                 <div class="card-body">
                     <i class="feather-sunrise fs-4 text-dark"></i>
                     <h6 class="mt-4 text-dark fw-bolder">Downloading Center</h6>
@@ -262,7 +264,7 @@
                     <a href="https://www.themewagon.com/themes/Duralux-admin" target="_blank"
                         class="btn btn-primary text-dark w-100">Download Now</a>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </nav>
