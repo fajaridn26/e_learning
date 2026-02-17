@@ -1813,7 +1813,7 @@
         <!--! [Start] Header Right !-->
         <div class="header-right ms-auto">
             <div class="d-flex align-items-center">
-                <div class="dropdown nxl-h-item nxl-header-search">
+                {{-- <div class="dropdown nxl-h-item nxl-header-search">
                     <a href="javascript:void(0);" class="nxl-head-link me-0" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside">
                         <i class="feather-search"></i>
@@ -2053,7 +2053,7 @@
                                 class="p-3 fs-10 fw-bold text-uppercase text-center d-block">Loar More</a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 {{-- <div class="dropdown nxl-h-item nxl-header-language d-none d-sm-flex">
                         <a href="javascript:void(0);" class="nxl-head-link me-0 nxl-language-link" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                             <img src="assets/vendors/img/flags/4x3/us.svg" alt="" class="img-fluid wd-20" />
@@ -2274,8 +2274,7 @@
                     </div>
                 </div> --}}
                 <div class="dropdown nxl-h-item">
-                    <a href="javascript:void(0);" data-bs-toggle="dropdown" role="button"
-                        data-bs-auto-close="outside">
+                    <a href="javascript:void(0);" data-bs-toggle="dropdown" role="button" data-bs-auto-close="outside">
                         <img src="{{ asset('assets/images/avatar/1.png') }}" alt="user-image"
                             class="img-fluid user-avtar me-0" />
                     </a>
@@ -2416,10 +2415,12 @@
                             <span>Account Settings</span>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="javascript:void(0);" class="dropdown-item">
-                            <i class="feather-log-out"></i>
-                            <span>Logout</span>
-                        </a>
+                        <form id="logoutForm">
+                            <button type="submit" class="dropdown-item">
+                                <i class="feather-log-out"></i>
+                                <span>Logout</span>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -2427,3 +2428,24 @@
         <!--! [End] Header Right !-->
     </div>
 </header>
+<script>
+    document.getElementById("logoutForm").addEventListener("click", function(e) {
+        e.preventDefault();
+
+        fetch('/api/logout', {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                    'Accept': 'application/json'
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    localStorage.removeItem('token');
+                    window.location.href = "/login";
+                }
+            })
+            .catch(err => console.log(err));
+    });
+</script>

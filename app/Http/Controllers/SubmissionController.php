@@ -22,7 +22,7 @@ class SubmissionController extends Controller
             }
         ])->orderBy('created_at', 'desc')->get();
 
-        return view('pengumpulan-tugas.index', compact('title', 'assignments', 'courses'));
+        return view('tugas.index', compact('title', 'assignments', 'courses'));
     }
 
 
@@ -31,7 +31,7 @@ class SubmissionController extends Controller
         $title = 'Penilaian Tugas';
         $submissions = Submission::select(['id', 'assignment_id', 'student_id', 'file_path', 'score'])->with(['assignment.course', 'student'])->orderBy('created_at', 'desc')->where('assignment_id', $assignmentId)->get();
         // dd($submissions);
-        return view('pengumpulan-tugas.detail', compact('title', 'submissions'));
+        return view('tugas.detail', compact('title', 'submissions'));
     }
 
     public function store(Request $request)

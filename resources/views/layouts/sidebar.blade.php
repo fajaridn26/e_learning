@@ -78,54 +78,50 @@
                     </ul>
                 </li> --}}
                 <li class="nxl-item nxl-hasmenu">
-                    <a href="javascript:void(0);" class="nxl-link">
+                    <a href="{{ url('users') }}" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-users"></i></span>
-                        <span class="nxl-mtext">Users</span><span class="nxl-arrow"><i
-                                class="feather-chevron-right"></i></span>
+                        <span class="nxl-mtext">Users</span><span class="nxl-arrow">
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ url('users') }}">Users</a></li>
+                        {{-- <li class="nxl-item"><a class="nxl-link" href="{{ url('users') }}">Users</a></li> --}}
                         {{-- <li class="nxl-item"><a class="nxl-link" href="customers-view.html">Customers View</a></li>
                         <li class="nxl-item"><a class="nxl-link" href="customers-create.html">Customers Create</a> --}}
+                        {{-- </li> --}}
+                    </ul>
                 </li>
-            </ul>
-            </li>
-            {{-- <li class="nxl-item nxl-hasmenu">
-                    <a href="javascript:void(0);" class="nxl-link">
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="{{ url('discussions') }}" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-alert-circle"></i></span>
-                        <span class="nxl-mtext">Leads</span><span class="nxl-arrow"><i
-                                class="feather-chevron-right"></i></span>
+                        <span class="nxl-mtext">Forum Diskusi</span>
                     </a>
-                    <ul class="nxl-submenu">
+                    {{-- <ul class="nxl-submenu">
                         <li class="nxl-item"><a class="nxl-link" href="leads.html">Leads</a></li>
                         <li class="nxl-item"><a class="nxl-link" href="leads-view.html">Leads View</a></li>
                         <li class="nxl-item"><a class="nxl-link" href="leads-create.html">Leads Create</a></li>
+                    </ul> --}}
+                </li>
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="feather-briefcase"></i></span>
+                        <span class="nxl-mtext">Mata Kuliah</span><span class="nxl-arrow"><i
+                                class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="{{ url('courses') }}">Mata Kuliah</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ url('submissions') }}">Tugas</a>
+                        </li>
                     </ul>
-                </li> --}}
-            <li class="nxl-item nxl-hasmenu">
-                <a href="javascript:void(0);" class="nxl-link">
-                    <span class="nxl-micon"><i class="feather-briefcase"></i></span>
-                    <span class="nxl-mtext">Mata Kuliah</span><span class="nxl-arrow"><i
-                            class="feather-chevron-right"></i></span>
-                </a>
-                <ul class="nxl-submenu">
-                    <li class="nxl-item"><a class="nxl-link" href="{{ url('courses') }}">Mata Kuliah</a></li>
-                    <li class="nxl-item"><a class="nxl-link" href="{{ url('submissions') }}">Tugas</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nxl-item nxl-hasmenu">
-                <a href="javascript:void(0);" class="nxl-link">
-                    <span class="nxl-micon"><i class="feather-layout"></i></span>
-                    <span class="nxl-mtext">Materi Kuliah</span><span class="nxl-arrow"><i
-                            class="feather-chevron-right"></i></span>
-                </a>
-                <ul class="nxl-submenu">
-                    <li class="nxl-item"><a class="nxl-link" href="{{ url('materials') }}">Materi Kuliah</a></li>
-            </li>
-            </ul>
-            </li>
-            {{-- <li class="nxl-item nxl-hasmenu">
+                </li>
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="{{ url('materials') }}" class="nxl-link">
+                        <span class="nxl-micon"><i class="feather-layout"></i></span>
+                        <span class="nxl-mtext">Materi Kuliah</span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="{{ url('materials') }}">Materi Kuliah</a></li>
+                    </ul>
+                </li>
+                {{-- <li class="nxl-item nxl-hasmenu">
                 <a href="javascript:void(0);" class="nxl-link">
                     <span class="nxl-micon"><i class="feather-settings"></i></span>
                     <span class="nxl-mtext">Settings</span><span class="nxl-arrow"><i
@@ -149,7 +145,7 @@
                     </li>
                 </ul>
             </li> --}}
-            {{-- <li class="nxl-item nxl-hasmenu">
+                {{-- <li class="nxl-item nxl-hasmenu">
                 <a href="javascript:void(0);" class="nxl-link">
                     <span class="nxl-micon"><i class="feather-power"></i></span>
                     <span class="nxl-mtext">Authentication</span><span class="nxl-arrow"><i
@@ -241,7 +237,7 @@
                     </li>
                 </ul>
             </li> --}}
-            {{-- <li class="nxl-item nxl-hasmenu">
+                {{-- <li class="nxl-item nxl-hasmenu">
                 <a href="javascript:void(0);" class="nxl-link">
                     <span class="nxl-micon"><i class="feather-life-buoy"></i></span>
                     <span class="nxl-mtext">Help Center</span><span class="nxl-arrow"><i

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -35,32 +36,36 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        if (Auth::attempt(['email' => $request->email,  'password' => $request->password])) {
-            $auth = Auth::user();
-            $success['token'] = $auth->createToken('auth_token')->plainTextToken;
-            $success['name'] = $auth->name;
+        $user = User::where('email', $request->email)->first();
 
-            return response()->json([
-                'success' => true,
-                'message' => 'Login  berhasil',
-                'data' => $success
-            ]);
-        } else {
+        if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json([
                 'success' => false,
-                'message' => 'Login  gagal',
+                'message' => 'Login gagal',
                 'data' => null
-            ]);
+            ], 401);
         }
+
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Login berhasil',
+            'data' => [
+                'token' => $token,
+                'name' => $user->name,
+                'email' => $user->email
+            ]
+        ]);
     }
 
     public function logout(Request $request)
-{
-    Auth::logout();
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
+    {
+        $request->user()->currentAccessToken()->delete();
 
-    return redirect('/login');
-}
-
+        return response()->json([
+            'success' => true,
+            'message' => 'Logout berhasil'
+        ]);
+    }
 }

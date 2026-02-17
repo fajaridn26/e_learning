@@ -61,4 +61,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(Submission::class, 'student_id');
     }
+
+    public function user()
+    {
+        return $this->hasMany(Discussions::class, 'user_id');
+    }
+    public function users()
+    {
+        return $this->hasMany(Replies::class, 'user_id');
+    }
 }
