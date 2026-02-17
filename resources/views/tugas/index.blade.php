@@ -23,12 +23,11 @@
                             </a>
                         </div>
                         <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-                            @if (auth()->user()->role === 'Dosen')
-                                <a data-bs-target="#createModal" data-bs-toggle="modal" class="btn btn-primary">
-                                    <i class="feather-plus me-2"></i>
-                                    <span>Tambah Tugas</span>
-                                </a>
-                            @endif
+                            <a id="btnTambahTugas" data-bs-target="#createModal" data-bs-toggle="modal"
+                                class="btn btn-primary" style="display: none">
+                                <i class="feather-plus me-2"></i>
+                                <span>Tambah Tugas</span>
+                            </a>
                         </div>
                     </div>
                     <div class="d-md-none d-flex align-items-center">
@@ -165,85 +164,84 @@
                         <div class="card stretch stretch-full">
                             <div class="card-body p-0">
                                 <div class="table-responsive">
-                                    @if (auth()->user()->role === 'Dosen')
-                                        <table class="table table-hover" id="projectList">
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Mata Kuliah</th>
-                                                    <th>Judul</th>
-                                                    <th>Deskripsi</th>
-                                                    <th>Deadline</th>
-                                                    <th>Actions</th>
+                                    <!-- Table Dosen -->
+                                    <table id="tabelDosen" class="table table-hover" style="display: none">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Mata Kuliah</th>
+                                                <th>Judul</th>
+                                                <th>Deskripsi</th>
+                                                <th>Deadline</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($assignments as $assignment)
+                                                <tr class="single-item">
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $assignment->course->name }}</td>
+                                                    <td>{{ $assignment->title }}</td>
+                                                    <td>{{ $assignment->description }}</td>
+                                                    <td>{{ \Carbon\Carbon::parse($assignment->deadline)->format('d F Y H:i') }}
+                                                    </td>
+                                                    <td>
+                                                        <div class="hstack gap-2 justify-content-end">
+                                                            <a href="{{ route('submissions.tugas-mahasiswa', $assignment->id) }}"
+                                                                class="d-flex me-1" data-alert-target="invoicSendMessage">
+                                                                <div class="avatar-text avatar-md"
+                                                                    data-bs-toggle="tooltip" data-bs-trigger="hover"
+                                                                    title="Tugas Mahasiswa">
+                                                                    <i class="feather feather-eye"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($assignments as $assignment)
-                                                    <tr class="single-item">
-                                                        <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $assignment->course->name }}</td>
-                                                        <td>{{ $assignment->title }}</td>
-                                                        <td>{{ $assignment->description }}</td>
-                                                        <td>{{ \Carbon\Carbon::parse($assignment->deadline)->format('d F Y H:i') }}
-                                                        </td>
-                                                        <td>
-                                                            <div class="hstack gap-2 justify-content-end">
-                                                                <a href="{{ route('submissions.tugas-mahasiswa', $assignment->id) }}"
-                                                                    class="d-flex me-1"
-                                                                    data-alert-target="invoicSendMessage">
-                                                                    <div class="avatar-text avatar-md"
-                                                                        data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                                                        title="Tugas Mahasiswa">
-                                                                        <i class="feather feather-eye"></i>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                    @elseif (auth()->user()->role === 'Mahasiswa')
-                                        <table class="table table-hover" id="projectList">
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Mata Kuliah</th>
-                                                    <th>Judul</th>
-                                                    <th>Deskripsi</th>
-                                                    <th>Deadline</th>
-                                                    <th>Nilai</th>
-                                                    <th>Actions</th>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                    <!-- Table Mahasiswa -->
+                                    <table id="tabelMahasiswa" class="table table-hover" style="display: none">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Mata Kuliah</th>
+                                                <th>Judul</th>
+                                                <th>Deskripsi</th>
+                                                <th>Deadline</th>
+                                                <th>Nilai</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($assignments as $assignment)
+                                                <tr class="single-item">
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $assignment->course->name }}</td>
+                                                    <td>{{ $assignment->title }}</td>
+                                                    <td>{{ $assignment->description }}</td>
+                                                    <td>{{ \Carbon\Carbon::parse($assignment->deadline)->format('d F Y H:i') }}
+                                                    </td>
+                                                    <td>{{ $assignment->submission->first()?->score ?? 0 }}</td>
+                                                    <td>
+                                                        <div class="hstack gap-2 justify-content-end">
+                                                            <a href="javascript:void(0)" class="d-flex me-1"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#kumpulkanTugas{{ $assignment->id }}">
+                                                                <div class="avatar-text avatar-md"
+                                                                    data-bs-toggle="tooltip" data-bs-trigger="hover"
+                                                                    title="Kumpulkan Tugas">
+                                                                    <i class="feather feather-send"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($assignments as $assignment)
-                                                    <tr class="single-item">
-                                                        <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $assignment->course->name }}</td>
-                                                        <td>{{ $assignment->title }}</td>
-                                                        <td>{{ $assignment->description }}</td>
-                                                        <td>{{ \Carbon\Carbon::parse($assignment->deadline)->format('d F Y H:i') }}
-                                                        </td>
-                                                        <td>{{ $assignment->submission->first()?->score ?? 0 }}</td>
-                                                        <td>
-                                                            <div class="hstack gap-2 justify-content-end">
-                                                                <a href="javascript:void(0)" class="d-flex me-1"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#kumpulkanTugas{{ $assignment->id }}">
-                                                                    <div class="avatar-text avatar-md"
-                                                                        data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                                                        title="Kumpulkan Tugas">
-                                                                        <i class="feather feather-send"></i>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                    @endif
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                    {{-- @endif --}}
                                 </div>
                             </div>
                         </div>

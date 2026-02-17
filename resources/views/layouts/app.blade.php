@@ -8,6 +8,8 @@
     <meta name="description" content="" />
     <meta name="keyword" content="" />
     <meta name="author" content="flexilecode" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!--! The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags !-->
     <!--! BEGIN: Apps Title-->
     <title>Duralux || {{ $title }}</title>
@@ -349,6 +351,82 @@
     <!--! BEGIN: Theme Customizer  !-->
     <script src="{{ asset('assets/js/theme-customizer-init.min.js') }}"></script>
     <!--! END: Theme Customizer !-->
+    <script>
+        let currentUser = null;
+
+        const token = localStorage.getItem('token');
+
+        if (!token) {
+            window.location.href = '/login';
+        } else {
+            fetch('/user', {
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    }
+                })
+                .then(res => res.json())
+                .then(user => {
+                    window.currentUser = user;
+
+                    // Navbar
+                    document.querySelector('#userName').textContent = user.name;
+                    document.querySelector('#userEmail').textContent = user.email;
+
+                    // Sidebar
+                    if (user.role === 'Dosen') {
+                        document.querySelector('#usersMenu').style.display = 'block';
+                    }
+
+                    // Materi Kuliah
+                    const btnMateri = document.querySelector('#btnTambahMateriKuliah');
+                    if (btnMateri && user.role === 'Dosen') {
+                        btnMateri.style.display = 'inline-flex';
+                    }
+
+                    // Forum Diskusi
+                    const btnTambahTopik = document.querySelector('#btnTambahTopik');
+                    if (btnTambahTopik && user.role === 'Dosen') {
+                        btnTambahTopik.style.display = 'inline-flex';
+                    }
+                    // Tugas
+                    const btnTambahTugas = document.querySelector('#btnTambahTugas');
+                    if (btnTambahTugas && user.role === 'Dosen') {
+                        btnTambahTugas.style.display = 'inline-flex';
+                    }
+
+                    const tabelDosen = document.querySelector('#tabelDosen');
+                    const tabelMahasiswa = document.querySelector('#tabelMahasiswa');
+
+                    if (user.role === 'Dosen' && tabelDosen) {
+                        tabelDosen.style.display = 'table';
+                        if (tabelMahasiswa) tabelMahasiswa.style.display = 'none';
+
+                        // DataTables untuk Dosen
+                        $(tabelDosen).DataTable({
+                            pageLength: 10,
+                            lengthMenu: [10, 20, 50, 100, 200, 500]
+                        });
+                    }
+
+                    if (user.role === 'Mahasiswa' && tabelMahasiswa) {
+                        tabelMahasiswa.style.display = 'table';
+                        if (tabelDosen) tabelDosen.style.display = 'none';
+
+                        // DataTables untuk Mahasiswa
+                        $(tabelMahasiswa).DataTable({
+                            pageLength: 10,
+                            lengthMenu: [10, 20, 50, 100, 200, 500]
+                        });
+                    }
+
+                })
+                .catch(() => {
+                    localStorage.removeItem('token');
+                    window.location.href = '/login';
+                });
+        }
+    </script>
+
 </body>
 
 </html>

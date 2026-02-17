@@ -9,12 +9,20 @@ use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\SubmissionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+
 
 Route::middleware('auth')->prefix('/')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
 });
 
+Route::middleware('auth')->get('/user', function (Request $request) {
+    return response()->json($request->user());
+});
+
 Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/register', [LoginController::class, 'register']);
 
 Route::middleware('auth')->prefix('/users')->group(function () {
     Route::get('/', [UserController::class, 'index'])->name('index');
@@ -49,7 +57,7 @@ Route::middleware('auth')->prefix('/submissions')->group(function () {
     Route::post('/{id}/grade', [SubmissionController::class, 'grade'])->name('submissions.grade');
 });
 
-Route::prefix('/discussions')->group(function () {
+Route::middleware('auth')->prefix('/discussions')->group(function () {
     Route::get('/', [DiscussionController::class, 'index']);
     Route::get('/detail-diskusi/{id}', [DiscussionController::class, 'showDetailDiskusi'])->name('discussions.detail-diskusi');
 });

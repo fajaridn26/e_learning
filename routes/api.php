@@ -14,5 +14,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/discussions/{id}/replies', [DiscussionController::class, 'replies'])->name('discussions.replies');
 });
 
-Route::post('register', [AuthController::class, 'register']);
-Route::post('login', [AuthController::class, 'login']);
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return response()->json($request->user());
+// });
+
+// Route::post('register', [AuthController::class, 'register']);
+// Route::post('login', [AuthController::class, 'login']);

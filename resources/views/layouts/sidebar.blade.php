@@ -37,7 +37,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nxl-item nxl-hasmenu">
+                {{-- <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-send"></i></span>
                         <span class="nxl-mtext">Applications</span><span class="nxl-arrow"><i
@@ -51,7 +51,7 @@
                         <li class="nxl-item"><a class="nxl-link" href="apps-storage.html">Storage</a></li>
                         <li class="nxl-item"><a class="nxl-link" href="apps-calendar.html">Calendar</a></li>
                     </ul>
-                </li>
+                </li> --}}
                 {{-- <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-at-sign"></i></span>
@@ -77,17 +77,11 @@
                         <li class="nxl-item"><a class="nxl-link" href="invoice-create.html">Invoice Create</a></li>
                     </ul>
                 </li> --}}
-                <li class="nxl-item nxl-hasmenu">
+                <li id="usersMenu" class="nxl-item nxl-hasmenu" style="display: none">
                     <a href="{{ url('users') }}" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-users"></i></span>
-                        <span class="nxl-mtext">Users</span><span class="nxl-arrow">
+                        <span class="nxl-mtext">Users</span><span class="nxl-arrow"></span>
                     </a>
-                    <ul class="nxl-submenu">
-                        {{-- <li class="nxl-item"><a class="nxl-link" href="{{ url('users') }}">Users</a></li> --}}
-                        {{-- <li class="nxl-item"><a class="nxl-link" href="customers-view.html">Customers View</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="customers-create.html">Customers Create</a> --}}
-                        {{-- </li> --}}
-                    </ul>
                 </li>
                 <li class="nxl-item nxl-hasmenu">
                     <a href="{{ url('discussions') }}" class="nxl-link">

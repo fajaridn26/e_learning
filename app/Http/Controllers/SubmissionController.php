@@ -9,10 +9,11 @@ use Illuminate\Http\Request;
 
 class SubmissionController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $title = 'Tugas';
         $studentId = auth()->id();
+        // dd($studentId);
         $courses = Course::select(['id', 'name', 'description'])->get();
 
         $assignments = Assignment::with([
@@ -21,10 +22,10 @@ class SubmissionController extends Controller
                 $query->where('student_id', $studentId);
             }
         ])->orderBy('created_at', 'desc')->get();
+        dd($assignments);
 
         return view('tugas.index', compact('title', 'assignments', 'courses'));
     }
-
 
     public function showTugasMahasiswa($assignmentId)
     {

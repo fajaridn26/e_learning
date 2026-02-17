@@ -2284,8 +2284,8 @@
                                 <img src="{{ asset('assets/images/avatar/1.png') }}" alt="user-image"
                                     class="img-fluid user-avtar" />
                                 <div>
-                                    <h6 class="text-dark mb-0">{{ auth()->user()->name }}</h6>
-                                    <span class="fs-12 fw-medium text-muted">{{ auth()->user()->email }}</span>
+                                    <h6 class="text-dark mb-0" id="userName"></h6>
+                                    <span class="fs-12 fw-medium text-muted" id="userEmail"></span>
                                 </div>
                             </div>
                         </div>

@@ -12,14 +12,14 @@ class CourseController extends Controller
     public function index()
     {
         $title = 'Mata Kuliah';
-        $user = Auth::user();
+        $user = auth()->user();
 
         $datas = Course::select(['id', 'name', 'description'])->orderBy('created_at', 'desc')->get();
 
         if ($user->role === 'Dosen') {
             $courses = Course::select(['id', 'name', 'description'])->orderBy('created_at', 'desc')->get();
         } else {
-            $courses = CourseStudent::select(['id', 'student_id', 'course_id'])->with('course')->orderBy('created_at', 'desc')->get();
+            $courses = CourseStudent::select(['id', 'student_id', 'course_id'])->with('course')->where('student_id', $user->id)->orderBy('created_at', 'desc')->get();
         }
         return view('mata-kuliah.index', compact('courses', 'datas', 'title'));
     }

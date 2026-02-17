@@ -8,6 +8,8 @@
     <meta name="description" content="">
     <meta name="keyword" content="">
     <meta name="author" content="theme_ocean">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!--! The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags !-->
     <!--! BEGIN: Apps Title-->
     <title>Duralux || Login Minimal</title>
@@ -334,11 +336,14 @@
     <script>
         document.querySelector("#loginForm").addEventListener("submit", function(e) {
             e.preventDefault();
+            const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-            fetch('/api/login', {
+            fetch('/login', {
                     method: 'POST',
+                    credentials: 'include',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': token,
                     },
                     body: JSON.stringify({
                         email: this.email.value,
@@ -349,10 +354,28 @@
                 .then(data => {
                     if (data.success) {
                         localStorage.setItem('token', data.data.token);
-                        window.location.href = "/";
+
+                        fetch('/user', {
+                                headers: {
+                                    'Authorization': 'Bearer ' + data.data.token
+                                }
+                            })
+                            .then(res => res.json())
+                            .then(user => {
+                                if (user) {
+                                    window.location.href = "/";
+                                } else {
+                                    alert('Login gagal: token invalid');
+                                    localStorage.removeItem('token');
+                                }
+                            });
                     } else {
                         alert("Login gagal");
                     }
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert("Terjadi kesalahan saat login");
                 });
         });
     </script>

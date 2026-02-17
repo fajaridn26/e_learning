@@ -100,7 +100,8 @@
                                     </a>
                                 </div>
                             </div>
-                            <a data-bs-target="#createModal" data-bs-toggle="modal" class="btn btn-primary">
+                            <a id="btnTambahMateriKuliah" data-bs-target="#createModal" data-bs-toggle="modal"
+                                class="btn btn-primary" style="display: none">
                                 <i class="feather-plus me-2"></i>
                                 <span>Tambah Materi Kuliah</span>
                             </a>
@@ -270,7 +271,9 @@
                                                     </td>
                                                     <td>{{ $material->course->name }}</td>
                                                     <td>{{ $material->title }}</td>
-                                                    <td><a href="{{ route('materials.download', $material->id) }}" class="btn btn-primary btn-md w-50 text-dark"><i class="feather-download me-2"></i>Download</a></td>
+                                                    <td><a href="{{ route('materials.download', $material->id) }}"
+                                                            class="btn btn-primary btn-md w-50 text-dark"><i
+                                                                class="feather-download me-2"></i>Download</a></td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
