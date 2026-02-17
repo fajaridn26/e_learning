@@ -22,7 +22,7 @@ class SubmissionController extends Controller
                 $query->where('student_id', $studentId);
             }
         ])->orderBy('created_at', 'desc')->get();
-        dd($assignments);
+        // dd($assignments);
 
         return view('tugas.index', compact('title', 'assignments', 'courses'));
     }

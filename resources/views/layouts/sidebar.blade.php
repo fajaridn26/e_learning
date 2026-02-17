@@ -111,9 +111,9 @@
                         <span class="nxl-micon"><i class="feather-layout"></i></span>
                         <span class="nxl-mtext">Materi Kuliah</span>
                     </a>
-                    <ul class="nxl-submenu">
+                    {{-- <ul class="nxl-submenu">
                         <li class="nxl-item"><a class="nxl-link" href="{{ url('materials') }}">Materi Kuliah</a></li>
-                    </ul>
+                    </ul> --}}
                 </li>
                 {{-- <li class="nxl-item nxl-hasmenu">
                 <a href="javascript:void(0);" class="nxl-link">

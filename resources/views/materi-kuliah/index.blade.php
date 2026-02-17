@@ -23,83 +23,7 @@
                             </a>
                         </div>
                         <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-                            <a href="javascript:void(0);" class="btn btn-icon btn-light-brand" data-bs-toggle="collapse"
-                                data-bs-target="#collapseOne">
-                                <i class="feather-bar-chart"></i>
-                            </a>
-                            <div class="dropdown">
-                                <a class="btn btn-icon btn-light-brand" data-bs-toggle="dropdown" data-bs-offset="0, 10"
-                                    data-bs-auto-close="outside">
-                                    <i class="feather-filter"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-end">
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <span class="wd-7 ht-7 bg-primary rounded-circle d-inline-block me-3"></span>
-                                        <span>Alls</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <span class="wd-7 ht-7 bg-indigo rounded-circle d-inline-block me-3"></span>
-                                        <span>On Hold</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <span class="wd-7 ht-7 bg-warning rounded-circle d-inline-block me-3"></span>
-                                        <span>Pending</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <span class="wd-7 ht-7 bg-success rounded-circle d-inline-block me-3"></span>
-                                        <span>Finished</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <span class="wd-7 ht-7 bg-danger rounded-circle d-inline-block me-3"></span>
-                                        <span>Declined</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <span class="wd-7 ht-7 bg-teal rounded-circle d-inline-block me-3"></span>
-                                        <span>In Progress</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <span class="wd-7 ht-7 bg-success rounded-circle d-inline-block me-3"></span>
-                                        <span>Not Started</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <span class="wd-7 ht-7 bg-warning rounded-circle d-inline-block me-3"></span>
-                                        <span>My Projects</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="dropdown">
-                                <a class="btn btn-icon btn-light-brand" data-bs-toggle="dropdown" data-bs-offset="0, 10"
-                                    data-bs-auto-close="outside">
-                                    <i class="feather-paperclip"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-end">
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <i class="bi bi-filetype-pdf me-3"></i>
-                                        <span>PDF</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <i class="bi bi-filetype-csv me-3"></i>
-                                        <span>CSV</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <i class="bi bi-filetype-xml me-3"></i>
-                                        <span>XML</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <i class="bi bi-filetype-txt me-3"></i>
-                                        <span>Text</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <i class="bi bi-filetype-exe me-3"></i>
-                                        <span>Excel</span>
-                                    </a>
-                                    <div class="dropdown-divider"></div>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <i class="bi bi-printer me-3"></i>
-                                        <span>Print</span>
-                                    </a>
-                                </div>
-                            </div>
+
                             <a id="btnTambahMateriKuliah" data-bs-target="#createModal" data-bs-toggle="modal"
                                 class="btn btn-primary" style="display: none">
                                 <i class="feather-plus me-2"></i>
@@ -114,122 +38,16 @@
                     </div>
                 </div>
             </div>
-            <div id="collapseOne" class="accordion-collapse collapse page-header-collapse">
-                <div class="accordion-body pb-2">
-                    <div class="row">
-                        <div class="col-xxl-3 col-md-6">
-                            <div class="card stretch stretch-full">
-                                <div class="card-body">
-                                    <a href="javascript:void(0);" class="fw-bold d-block">
-                                        <span class="d-block">Not Started</span>
-                                        <span class="fs-24 fw-bolder d-block">04</span>
-                                    </a>
-                                    <div class="pt-4">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <a href="javascript:void(0);" class="fs-12 fw-medium text-muted">
-                                                <span>Invoices Awaiting</span>
-                                                <i class="feather-link-2 fs-10 ms-1"></i>
-                                            </a>
-                                            <div>
-                                                <span class="fs-12 text-muted">$5,569</span>
-                                                <span class="fs-11 text-muted">(56%)</span>
-                                            </div>
-                                        </div>
-                                        <div class="progress mt-2 ht-3">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 56%">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-3 col-md-6">
-                            <div class="card stretch stretch-full">
-                                <div class="card-body">
-                                    <a href="javascript:void(0);" class="fw-bold d-block">
-                                        <span class="d-block">In Progress</span>
-                                        <span class="fs-24 fw-bolder d-block">06</span>
-                                    </a>
-                                    <div class="pt-4">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <a href="javascript:void(0);" class="fs-12 fw-medium text-muted">
-                                                <span>Projects In Progress</span>
-                                                <i class="feather-link-2 fs-10 ms-1"></i>
-                                            </a>
-                                            <div>
-                                                <span class="fs-12 text-muted">16 Completed</span>
-                                                <span class="fs-11 text-muted">(78%)</span>
-                                            </div>
-                                        </div>
-                                        <div class="progress mt-2 ht-3">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 78%">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-3 col-md-6">
-                            <div class="card stretch stretch-full">
-                                <div class="card-body">
-                                    <a href="javascript:void(0);" class="fw-bold d-block">
-                                        <span class="d-block">Cancelled</span>
-                                        <span class="fs-24 fw-bolder d-block">02</span>
-                                    </a>
-                                    <div class="pt-4">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <a href="javascript:void(0);" class="fs-12 fw-medium text-muted">
-                                                <span>Converted Leads</span>
-                                                <i class="feather-link-2 fs-10 ms-1"></i>
-                                            </a>
-                                            <div>
-                                                <span class="fs-12 text-muted">52 Completed</span>
-                                                <span class="fs-11 text-muted">(63%)</span>
-                                            </div>
-                                        </div>
-                                        <div class="progress mt-2 ht-3">
-                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 63%">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-3 col-md-6">
-                            <div class="card stretch stretch-full">
-                                <div class="card-body">
-                                    <a href="javascript:void(0);" class="fw-bold d-block">
-                                        <span class="d-block">Finished</span>
-                                        <span class="fs-24 fw-bolder d-block">25</span>
-                                    </a>
-                                    <div class="pt-4">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <a href="javascript:void(0);" class="fs-12 fw-medium text-muted">
-                                                <span>Conversion Rate</span>
-                                                <i class="feather-link-2 fs-10 ms-1"></i>
-                                            </a>
-                                            <div>
-                                                <span class="fs-12 text-muted">$2,254</span>
-                                                <span class="fs-11 text-muted">(46%)</span>
-                                            </div>
-                                        </div>
-                                        <div class="progress mt-2 ht-3">
-                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 46%">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <!-- [ page-header ] end -->
             <!-- [ Main Content ] start -->
             <div class="main-content">
                 @if (session('success'))
                     <div class="alert alert-success" role="alert">
                         {{ session('success') }}
+                    </div>
+                @elseif (session('deleteSuccess'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('deleteSuccess') }}
                     </div>
                 @endif
                 <div class="row">
@@ -240,40 +58,29 @@
                                     <table class="table table-hover" id="projectList">
                                         <thead>
                                             <tr>
-                                                <th class="wd-30">
-                                                    <div class="btn-group mb-1">
-                                                        <div class="custom-control custom-checkbox ms-1">
-                                                            <input type="checkbox" class="custom-control-input"
-                                                                id="checkAllProject">
-                                                            <label class="custom-control-label"
-                                                                for="checkAllProject"></label>
-                                                        </div>
-                                                    </div>
-                                                </th>
                                                 <th>Mata Kuliah</th>
                                                 <th>Judul</th>
                                                 <th>Materi</th>
+                                                <th style="width: 40px" class="text-end">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($materials as $material)
                                                 <tr class="single-item">
-                                                    <td>
-                                                        <div class="item-checkbox ms-1">
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox"
-                                                                    class="custom-control-input checkbox"
-                                                                    id="checkBox_1{{ $material->id }}">
-                                                                <label class="custom-control-label"
-                                                                    for="checkBox_1{{ $material->id }}"></label>
-                                                            </div>
-                                                        </div>
-                                                    </td>
                                                     <td>{{ $material->course->name }}</td>
                                                     <td>{{ $material->title }}</td>
                                                     <td><a href="{{ route('materials.download', $material->id) }}"
                                                             class="btn btn-primary btn-md w-50 text-dark"><i
                                                                 class="feather-download me-2"></i>Download</a></td>
+                                                    <td style="width: 40px" class="text-end"><a href="javascript:void(0)"
+                                                            class="d-flex me-1"
+                                                            data-bs-target="#deleteModal{{ $material->id }}"
+                                                            data-bs-toggle="modal">
+                                                            <div class="avatar-text avatar-md" data-bs-toggle="tooltip"
+                                                                data-bs-trigger="hover" title="Hapus Materi">
+                                                                <i class="feather feather-trash"></i>
+                                                            </div>
+                                                        </a></td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -329,4 +136,34 @@
             </div>
         </div>
     </form>
+
+    @foreach ($materials as $material)
+        <form action="{{ route('materials.destroy', $material->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <div class="modal fade" id="deleteModal{{ $material->id }}" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Hapus Materi Kuliah</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="text-center">
+                                <h5>Materi Kuliah <span class="text-primary">{{ $material->course->name }}</span> akan
+                                    dihapus!
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    @endforeach
 @endsection

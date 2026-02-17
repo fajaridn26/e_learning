@@ -23,83 +23,10 @@
                             </a>
                         </div>
                         <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-                            <a href="javascript:void(0);" class="btn btn-icon btn-light-brand" data-bs-toggle="collapse"
+                            {{-- <a href="javascript:void(0);" class="btn btn-icon btn-light-brand" data-bs-toggle="collapse"
                                 data-bs-target="#collapseOne">
                                 <i class="feather-bar-chart"></i>
-                            </a>
-                            <div class="dropdown">
-                                <a class="btn btn-icon btn-light-brand" data-bs-toggle="dropdown" data-bs-offset="0, 10"
-                                    data-bs-auto-close="outside">
-                                    <i class="feather-filter"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-end">
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <span class="wd-7 ht-7 bg-primary rounded-circle d-inline-block me-3"></span>
-                                        <span>Alls</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <span class="wd-7 ht-7 bg-indigo rounded-circle d-inline-block me-3"></span>
-                                        <span>On Hold</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <span class="wd-7 ht-7 bg-warning rounded-circle d-inline-block me-3"></span>
-                                        <span>Pending</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <span class="wd-7 ht-7 bg-success rounded-circle d-inline-block me-3"></span>
-                                        <span>Finished</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <span class="wd-7 ht-7 bg-danger rounded-circle d-inline-block me-3"></span>
-                                        <span>Declined</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <span class="wd-7 ht-7 bg-teal rounded-circle d-inline-block me-3"></span>
-                                        <span>In Progress</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <span class="wd-7 ht-7 bg-success rounded-circle d-inline-block me-3"></span>
-                                        <span>Not Started</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <span class="wd-7 ht-7 bg-warning rounded-circle d-inline-block me-3"></span>
-                                        <span>My Projects</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="dropdown">
-                                <a class="btn btn-icon btn-light-brand" data-bs-toggle="dropdown" data-bs-offset="0, 10"
-                                    data-bs-auto-close="outside">
-                                    <i class="feather-paperclip"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-end">
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <i class="bi bi-filetype-pdf me-3"></i>
-                                        <span>PDF</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <i class="bi bi-filetype-csv me-3"></i>
-                                        <span>CSV</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <i class="bi bi-filetype-xml me-3"></i>
-                                        <span>XML</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <i class="bi bi-filetype-txt me-3"></i>
-                                        <span>Text</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <i class="bi bi-filetype-exe me-3"></i>
-                                        <span>Excel</span>
-                                    </a>
-                                    <div class="dropdown-divider"></div>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <i class="bi bi-printer me-3"></i>
-                                        <span>Print</span>
-                                    </a>
-                                </div>
-                            </div>
+                            </a> --}}
                             @if (auth()->user()->role === 'Dosen')
                                 <a data-bs-target="#createModal" data-bs-toggle="modal" class="btn btn-primary">
                                     <i class="feather-plus me-2"></i>
@@ -117,116 +44,6 @@
                         <a href="javascript:void(0)" class="page-header-right-open-toggle">
                             <i class="feather-align-right fs-20"></i>
                         </a>
-                    </div>
-                </div>
-            </div>
-            <div id="collapseOne" class="accordion-collapse collapse page-header-collapse">
-                <div class="accordion-body pb-2">
-                    <div class="row">
-                        <div class="col-xxl-3 col-md-6">
-                            <div class="card stretch stretch-full">
-                                <div class="card-body">
-                                    <a href="javascript:void(0);" class="fw-bold d-block">
-                                        <span class="d-block">Not Started</span>
-                                        <span class="fs-24 fw-bolder d-block">04</span>
-                                    </a>
-                                    <div class="pt-4">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <a href="javascript:void(0);" class="fs-12 fw-medium text-muted">
-                                                <span>Invoices Awaiting</span>
-                                                <i class="feather-link-2 fs-10 ms-1"></i>
-                                            </a>
-                                            <div>
-                                                <span class="fs-12 text-muted">$5,569</span>
-                                                <span class="fs-11 text-muted">(56%)</span>
-                                            </div>
-                                        </div>
-                                        <div class="progress mt-2 ht-3">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 56%">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-3 col-md-6">
-                            <div class="card stretch stretch-full">
-                                <div class="card-body">
-                                    <a href="javascript:void(0);" class="fw-bold d-block">
-                                        <span class="d-block">In Progress</span>
-                                        <span class="fs-24 fw-bolder d-block">06</span>
-                                    </a>
-                                    <div class="pt-4">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <a href="javascript:void(0);" class="fs-12 fw-medium text-muted">
-                                                <span>Projects In Progress</span>
-                                                <i class="feather-link-2 fs-10 ms-1"></i>
-                                            </a>
-                                            <div>
-                                                <span class="fs-12 text-muted">16 Completed</span>
-                                                <span class="fs-11 text-muted">(78%)</span>
-                                            </div>
-                                        </div>
-                                        <div class="progress mt-2 ht-3">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 78%">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-3 col-md-6">
-                            <div class="card stretch stretch-full">
-                                <div class="card-body">
-                                    <a href="javascript:void(0);" class="fw-bold d-block">
-                                        <span class="d-block">Cancelled</span>
-                                        <span class="fs-24 fw-bolder d-block">02</span>
-                                    </a>
-                                    <div class="pt-4">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <a href="javascript:void(0);" class="fs-12 fw-medium text-muted">
-                                                <span>Converted Leads</span>
-                                                <i class="feather-link-2 fs-10 ms-1"></i>
-                                            </a>
-                                            <div>
-                                                <span class="fs-12 text-muted">52 Completed</span>
-                                                <span class="fs-11 text-muted">(63%)</span>
-                                            </div>
-                                        </div>
-                                        <div class="progress mt-2 ht-3">
-                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 63%">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-3 col-md-6">
-                            <div class="card stretch stretch-full">
-                                <div class="card-body">
-                                    <a href="javascript:void(0);" class="fw-bold d-block">
-                                        <span class="d-block">Finished</span>
-                                        <span class="fs-24 fw-bolder d-block">25</span>
-                                    </a>
-                                    <div class="pt-4">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <a href="javascript:void(0);" class="fs-12 fw-medium text-muted">
-                                                <span>Conversion Rate</span>
-                                                <i class="feather-link-2 fs-10 ms-1"></i>
-                                            </a>
-                                            <div>
-                                                <span class="fs-12 text-muted">$2,254</span>
-                                                <span class="fs-11 text-muted">(46%)</span>
-                                            </div>
-                                        </div>
-                                        <div class="progress mt-2 ht-3">
-                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 46%">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -255,71 +72,38 @@
                                         <table class="table table-hover" id="projectList">
                                             <thead>
                                                 <tr>
-                                                    <th class="wd-30">
-                                                        <div class="btn-group mb-1">
-                                                            <div class="custom-control custom-checkbox ms-1">
-                                                                <input type="checkbox" class="custom-control-input"
-                                                                    id="checkAllProject">
-                                                                <label class="custom-control-label"
-                                                                    for="checkAllProject"></label>
-                                                            </div>
-                                                        </div>
-                                                    </th>
+                                                    <th>No</th>
                                                     <th>Mata Kuliah</th>
                                                     <th>Deskripsi</th>
-                                                    <th class="text-end">Actions</th>
+                                                    <th style="width: 120px;" class="text-end">Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach ($courses as $course)
                                                     <tr class="single-item">
-                                                        <td>
-                                                            <div class="item-checkbox ms-1">
-                                                                <div class="custom-control custom-checkbox">
-                                                                    <input type="checkbox"
-                                                                        class="custom-control-input checkbox"
-                                                                        id="checkBox_1{{ $course->id }}">
-                                                                    <label class="custom-control-label"
-                                                                        for="checkBox_1{{ $course->id }}"></label>
-                                                                </div>
-                                                            </div>
-                                                        </td>
+                                                        <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $course->name }}</td>
                                                         <td>{{ $course->description }}</td>
-                                                        <td>
+                                                        <td style="width: 120px;" class="text-end">
                                                             <div class="hstack gap-2 justify-content-end">
-                                                                <a href="projects-view.html"
-                                                                    class="avatar-text avatar-md">
-                                                                    <i class="feather feather-eye"></i>
+                                                                <a href="javascript:void(0)" class="d-flex me-1"
+                                                                    data-bs-target="#editModal{{ $course->id }}"
+                                                                    data-bs-toggle="modal">
+                                                                    <div class="avatar-text avatar-md"
+                                                                        data-bs-toggle="tooltip" data-bs-trigger="hover"
+                                                                        title="Edit Mata Kuliah">
+                                                                        <i class="feather feather-edit"></i>
+                                                                    </div>
                                                                 </a>
-                                                                <div class="dropdown">
-                                                                    <a href="javascript:void(0)"
-                                                                        class="avatar-text avatar-md"
-                                                                        data-bs-toggle="dropdown" data-bs-offset="0,21">
-                                                                        <i class="feather feather-more-horizontal"></i>
-                                                                    </a>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li>
-                                                                            <a class="dropdown-item"
-                                                                                href="javascript:void(0)"
-                                                                                data-bs-target="#editModal{{ $course->id }}"
-                                                                                data-bs-toggle="modal">
-                                                                                <i class="feather feather-edit-3 me-3"></i>
-                                                                                <span>Edit</span>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <a class="dropdown-item"
-                                                                                href="javascript:void(0)"
-                                                                                data-bs-target="#deleteModal{{ $course->id }}"
-                                                                                data-bs-toggle="modal">
-                                                                                <i
-                                                                                    class="feather feather-trash-2 me-3"></i>
-                                                                                <span>Delete</span>
-                                                                            </a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
+                                                                <a href="javascript:void(0)" class="d-flex me-1"
+                                                                    data-bs-target="#deleteModal{{ $course->id }}"
+                                                                    data-bs-toggle="modal">
+                                                                    <div class="avatar-text avatar-md"
+                                                                        data-bs-toggle="tooltip" data-bs-trigger="hover"
+                                                                        title="Hapus Mata Kuliah">
+                                                                        <i class="feather feather-trash"></i>
+                                                                    </div>
+                                                                </a>
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -365,8 +149,7 @@
                                                         <td>{{ $course->course->name }}</td>
                                                         <td>
                                                             <div class="hstack gap-2 justify-content-end">
-                                                                <a href="projects-view.html"
-                                                                    class="avatar-text avatar-md">
+                                                                <a href="projects-view.html" class="avatar-text avatar-md">
                                                                     <i class="feather feather-eye"></i>
                                                                 </a>
                                                                 <div class="dropdown">

@@ -44,6 +44,7 @@ Route::middleware('auth')->prefix('/materials')->group(function () {
     Route::get('/', [MaterialController::class, 'index']);
     Route::post('/', [MaterialController::class, 'store'])->name('materials.store');
     Route::get('/{id}/download', [MaterialController::class, 'download'])->name('materials.download');
+    Route::delete('/{id}', [MaterialController::class, 'destroy'])->name('materials.destroy');
 });
 
 Route::middleware('auth')->prefix('/assignments')->group(function () {

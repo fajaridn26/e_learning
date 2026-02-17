@@ -35,23 +35,29 @@ class MaterialController extends Controller
             'file_path' => $filePath
         ]);
 
-        return redirect()->back()->with('success', 'Materi Kuliah Berhasil Ditambahkan!');
+        return back()->with('success', 'Materi Kuliah Berhasil Ditambahkan!');
     }
 
     public function download($id)
     {
         $material = Material::findOrFail($id);
 
-        // Ambil nama file saja dari path
-        $fileName = basename($material->file_path); // contoh: file.pdf atau file.pptx
-        $filePath = 'materials/' . $fileName; // relatif dari storage/app/public
+        $fileName = basename($material->file_path);
+        $filePath = 'materials/' . $fileName;
 
-        // Cek apakah file ada di disk public
         if (!Storage::disk('public')->exists($filePath)) {
-            return redirect()->back()->with('error', 'File tidak ditemukan');
+            return back()->with('error', 'File tidak ditemukan');
         }
 
-        // Download file, browser otomatis mendeteksi tipe file
         return Storage::disk('public')->download($filePath, $fileName);
+    }
+
+     public function destroy($id)
+    {
+        $material = Material::findOrFail($id);
+
+        $material->delete();
+
+        return back()->with('deleteSuccess', 'Mata Kuliah Berhasil Dihapus!');
     }
 }
