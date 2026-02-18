@@ -13,6 +13,7 @@ class MaterialController extends Controller
     {
         $title = 'Materi Kuliah';
         $materials = Material::select(['id', 'title', 'file_path', 'course_id'])->with('course')->orderBy('created_at', 'desc')->get();
+        // dd($materials);
         $courses = Course::select(['id', 'name', 'description'])->orderBy('created_at', 'desc')->get();
         return view('materi-kuliah.index', compact('title', 'materials', 'courses'));
     }

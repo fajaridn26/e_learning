@@ -6,6 +6,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DiscussionController;
 use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SubmissionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,13 @@ Route::middleware('auth')->get('/user', function (Request $request) {
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/register', [LoginController::class, 'register']);
+
+Route::middleware('auth')->prefix('/reports')->group(function () {
+    Route::get('/', [ReportController::class, 'index'])->name('index');
+    Route::get('/courses', [ReportController::class, 'courses'])->name('reports.courses');
+    Route::get('/assignments', [ReportController::class, 'assignments'])->name('reports.assignments');
+    Route::get('/students/{id}', [ReportController::class, 'students'])->name('reports.students');
+});
 
 Route::middleware('auth')->prefix('/users')->group(function () {
     Route::get('/', [UserController::class, 'index'])->name('index');
