@@ -21,7 +21,7 @@ class DiscussionController extends Controller
     {
         $title = 'Detail Diskusi';
         $discussions = Discussions::select(['id', 'course_id', 'user_id', 'content'])->with('course', 'user')->where('id', $id)->orderBy('created_at', 'desc')->get();
-        $replies = Replies::select('id', 'discussion_id', 'user_id', 'content', 'created_at')->with('users')->where('discussion_id', $id)->orderBy('created_at', 'desc')->get();
+        $replies = Replies::select('id', 'discussion_id', 'user_id', 'content', 'created_at')->with('user')->where('discussion_id', $id)->orderBy('created_at', 'desc')->get();
         // dd($replies);
         return view('forum-diskusi.detail', compact('title', 'discussions', 'replies'));
     }

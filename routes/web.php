@@ -12,7 +12,7 @@ use App\Http\Controllers\SubmissionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Broadcast;
 
 Route::middleware('auth')->prefix('/')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
@@ -21,6 +21,12 @@ Route::middleware('auth')->prefix('/')->group(function () {
 Route::middleware('auth')->get('/user', function (Request $request) {
     return response()->json($request->user());
 });
+
+// routes/web.php
+Route::post('/broadcasting/auth', function (Request $request) {
+    return Broadcast::auth($request);
+})->middleware('auth:sanctum');
+
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);

@@ -41,6 +41,8 @@ class DiscussionController extends Controller
             'content' => $request->content,
         ]);
 
+        broadcast(new \App\Events\ReplyCreated($reply))->toOthers();
+
         return response()->json([
             'message' => 'Komentar Berhasil Ditambahkan!',
             'data' => $reply
