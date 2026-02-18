@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DiscussionController;
@@ -23,7 +24,8 @@ Route::middleware('auth')->get('/user', function (Request $request) {
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
-Route::post('/register', [LoginController::class, 'register']);
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'register']);
 
 Route::middleware('auth')->prefix('/reports')->group(function () {
     Route::get('/', [ReportController::class, 'index'])->name('index');

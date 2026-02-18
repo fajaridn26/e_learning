@@ -37,31 +37,6 @@ class LoginController extends Controller
             ]
         ]);
     }
-
-    // public function login(Request $request)
-    // {
-    //     $user = User::where('email', $request->email)->first();
-
-    //     if (!$user || !Hash::check($request->password, $user->password)) {
-    //         return response()->json([
-    //             'success' => false,
-    //             'message' => 'Login gagal',
-    //             'data' => null
-    //         ], 401);
-    //     }
-
-    //     $token = $user->createToken('auth_token')->plainTextToken;
-
-    //     return response()->json([
-    //         'success' => true,
-    //         'message' => 'Login berhasil',
-    //         'data' => [
-    //             'token' => $token,
-    //             'name' => $user->name,
-    //             'email' => $user->email
-    //         ]
-    //     ]);
-    // }
     public function login(Request $request)
     {
         $request->validate([
@@ -74,7 +49,6 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            // Buat token untuk API
             $user = Auth::user();
             $token = $user->createToken('api_token')->plainTextToken;
 
@@ -100,7 +74,6 @@ class LoginController extends Controller
     {
         $user = $request->user();
 
-        // Hapus semua token API user
         $user->tokens()->delete();
 
         Auth::logout();
@@ -113,15 +86,3 @@ class LoginController extends Controller
         ]);
     }
 }
-
-
-    // public function logout(Request $request)
-    // {
-    //     $request->user()->currentAccessToken()->delete();
-
-    //     return response()->json([
-    //         'success' => true,
-    //         'message' => 'Logout berhasil'
-    //     ]);
-    // }
-// }

@@ -12,7 +12,7 @@
 
     <!--! The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags !-->
     <!--! BEGIN: Apps Title-->
-    <title>Duralux || Login</title>
+    <title>Duralux || Register</title>
     <!--! END:  Apps Title-->
     <!--! BEGIN: Favicon-->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
@@ -47,51 +47,44 @@
                         <img src="assets/images/logo-abbr.png" alt="" class="img-fluid">
                     </div>
                     <div class="card-body p-sm-5">
-                        <h2 class="fs-20 fw-bolder mb-4">Login</h2>
-                        <h4 class="fs-13 fw-bold mb-2">Login to your account</h4>
-                        {{-- <p class="fs-12 fw-medium text-muted">Thank you for get back <strong>Nelel</strong> web applications, let's access our the best recommendation for you.</p> --}}
-                        <form id="loginForm" class="w-100 mt-4 pt-2">
+                        <h2 class="fs-20 fw-bolder mb-4">Register</h2>
+
+                        <form id="registerForm" class="w-100 mt-4 pt-2">
                             <div class="mb-4">
-                                <input type="email" name="email" class="form-control" placeholder="Email"
-                                    value="" required>
+                                <input type="text" name="name" class="form-control" placeholder="Full Name"
+                                    required>
                             </div>
-                            <div class="mb-3">
-                                <input type="password" name="password" class="form-control" placeholder="Password"
-                                    value="" required>
+                            <div class="mb-4">
+                                <input type="email" name="email" class="form-control" placeholder="Email" required>
                             </div>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="rememberMe">
-                                        <label class="custom-control-label c-pointer" for="rememberMe">Remember
-                                            Me</label>
-                                    </div>
+                            <div class="mb-4 generate-pass">
+                                <div class="input-group field">
+                                    <input type="password" name="password" class="form-control password"
+                                        id="newPassword" placeholder="Password Confirm">
+                                    <div class="input-group-text c-pointer gen-pass" data-bs-toggle="tooltip"
+                                        title="Generate Password"><i class="feather-hash"></i></div>
+                                    <div class="input-group-text border-start bg-gray-2 c-pointer show-pass"
+                                        data-bs-toggle="tooltip" title="Show/Hide Password"><i></i></div>
                                 </div>
-                                <div>
-                                    <a href="auth-reset-minimal.html" class="fs-11 text-primary">Forget password?</a>
+                                <div class="progress-bar mt-2">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
                                 </div>
                             </div>
+                            <div class="mb-4">
+                                <input type="password" name="confirm_password" class="form-control"
+                                    placeholder="Password again" required>
+                            </div>
+
                             <div class="mt-5">
-                                <button type="submit" class="btn btn-lg btn-primary w-100">Login</button>
+                                <button type="submit" class="btn btn-lg btn-primary w-100">Create Account</button>
                             </div>
                         </form>
-                        {{-- <div class="w-100 mt-5 text-center mx-auto">
-                            <div class="mb-4 border-bottom position-relative"><span class="small py-1 px-3 text-uppercase text-muted bg-white position-absolute translate-middle">or</span></div>
-                            <div class="d-flex align-items-center justify-content-center gap-2">
-                                <a href="javascript:void(0);" class="btn btn-light-brand flex-fill" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Login with Facebook">
-                                    <i class="feather-facebook"></i>
-                                </a>
-                                <a href="javascript:void(0);" class="btn btn-light-brand flex-fill" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Login with Twitter">
-                                    <i class="feather-twitter"></i>
-                                </a>
-                                <a href="javascript:void(0);" class="btn btn-light-brand flex-fill" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Login with Github">
-                                    <i class="feather-github text"></i>
-                                </a>
-                            </div>
-                        </div> --}}
                         <div class="mt-5 text-muted">
-                            <span> Don't have an account?</span>
-                            <a href="{{ url('register') }}" class="fw-bold">Create an Account</a>
+                            <span>Already have an account?</span>
+                            <a href="{{ url('login') }}" class="fw-bold">Login</a>
                         </div>
                     </div>
                 </div>
@@ -133,8 +126,8 @@
                                 for="app-skin-light">Light</label>
                         </div>
                         <div class="col-6 text-center position-relative single-option dark-button">
-                            <input type="radio" class="btn-check" id="app-skin-dark" name="app-skin" value="2"
-                                data-app-skin="app-skin-dark">
+                            <input type="radio" class="btn-check" id="app-skin-dark" name="app-skin"
+                                value="2" data-app-skin="app-skin-dark">
                             <label
                                 class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label"
                                 for="app-skin-dark">Dark</label>
@@ -325,20 +318,22 @@
     <!--! Footer Script !-->
     <!--! ================================================================ !-->
     <!--! BEGIN: Vendors JS !-->
-    <script src="assets/vendors/js/vendors.min.js"></script>
+    <script src="{{ asset('assets/vendors/js/vendors.min.js') }}"></script>
     <!-- vendors.min.js {always must need to be top} -->
+    <script src="assets/vendors/js/lslstrength.min.js"></script>
     <!--! END: Vendors JS !-->
     <!--! BEGIN: Apps Init  !-->
-    <script src="assets/js/common-init.min.js"></script>
+    <script src="{{ asset('assets/js/common-init.min.js') }}"></script>
     <!--! END: Apps Init !-->
     <!--! BEGIN: Theme Customizer  !-->
-    <script src="assets/js/theme-customizer-init.min.js"></script>
+    <script src="{{ asset('assets/js/theme-customizer-init.min.js') }}"></script>
+    <!--! END: Theme Customizer !-->
     <script>
-        document.querySelector("#loginForm").addEventListener("submit", function(e) {
+        document.querySelector("#registerForm").addEventListener("submit", function(e) {
             e.preventDefault();
             const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-            fetch('/login', {
+            fetch('/register', {
                     method: 'POST',
                     credentials: 'include',
                     headers: {
@@ -346,8 +341,10 @@
                         'X-CSRF-TOKEN': token,
                     },
                     body: JSON.stringify({
+                        name: this.name.value,
                         email: this.email.value,
-                        password: this.password.value
+                        password: this.password.value,
+                        confirm_password: this.confirm_password.value
                     })
                 })
                 .then(res => res.json())
@@ -363,7 +360,7 @@
                             .then(res => res.json())
                             .then(user => {
                                 if (user) {
-                                    window.location.href = "/";
+                                    window.location.href = "/login";
                                 } else {
                                     alert('Login gagal: token invalid');
                                     localStorage.removeItem('token');
@@ -375,12 +372,10 @@
                 })
                 .catch(err => {
                     console.error(err);
-                    alert("Terjadi kesalahan saat login");
+                    alert("Terjadi kesalahan saat register");
                 });
         });
     </script>
-
-    <!--! END: Theme Customizer !-->
 </body>
 
 </html>
